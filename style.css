@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+  
+  body {
+    background-color: red;
+  }
+  
+  .gameContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .person {
+    background-image: url('character1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 10vw;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    left: 10vw;
+  }
+  
+  .obstacle {
+    background-image: url('character2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 8vw;
+    height: 16vh;
+    position: absolute;
+    bottom: 0;
+    left: 75vw;
+  }
+  
+  .obstacleMove {
+    animation: obstacleAnim 2s linear infinite;
+  }
+  
+  @keyframes obstacleAnim {
+    0% {
+      left: 100vw;
+    }
+    100% {
+      left: -10vw;
+    }
+  }
+  
+  .animatePerson {
+    animation: personJump 0.6s linear;
+  }
+  
+  @keyframes personJump {
+    0% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 40vh;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  
+  .ScoreCount {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+  
+  .gameOver {
+    visibility: hidden;
+    font-size: 3vh;
+    color: yellow;
+    font-weight: bold;
+    position: absolute;
+    top: 20vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 40px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .restartBtn {
+    display: none;
+    position: absolute;
+    top: 30vh;
+    padding: 12px 24px;
+    font-size: 2vh;
+    background-color: #00c4ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  @media (orientation: portrait) {
+    body::before {
+      content: 'Please rotate your device to landscape to play the game.';
+      position: absolute;
+      z-index: 9999;
+      background: black;
+      color: white;
+      font-size: 3vh;
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+      padding-top: 40vh;
+    }
+  
+    .gameContainer {
+      display: none;
+    }
+  }
+  
